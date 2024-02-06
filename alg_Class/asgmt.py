@@ -24,8 +24,9 @@
 #Your submission must also adhere to the Submission Requirements 
 #document (i.e., Filename and display your name, class, date in the output).
 
+
 def main():
-#
+
 
 #prompt users for values needed to calculate cost
     print("""We have two approaches to cleaning. If you prefer, we can
@@ -67,7 +68,7 @@ STEPS_COST = 10
 
 #regular calculations
 def roomCount():
-    total = 0;
+    total = 0
     roomTotal = eval(input("How many rooms would you like cleaned?\n"))
     while roomTotal > 0:
         total += roomAsk()
@@ -89,7 +90,7 @@ def roomAsk():
     #provide option/description based on verbal or numerical entry
     if (room == "entry way".lower()):
         total += ENTRY_WAY_COST
-        print(room.lower + ":", ENTRY_WAY_COST)
+        print(room + ": ", ENTRY_WAY_COST)
     elif (room == "1"):
         total += ENTRY_WAY_COST
         print("entry way:", ENTRY_WAY_COST)
@@ -187,7 +188,8 @@ MED = 2500
 #deep-clean calculations
 
 def deepCleanCalc():
-    sqFt = eval(input("What is the square footage of the house?\n"))
+    sqFt = eval(input("""Deep clean pricing is based on square footage and is not impacted
+by room type. What is the square footage of the house?\n"""))
     #calc cost and account for minimum pay
     if sqFt < LOW and sqFt * .15 <= 200:
         print("The total cost will be $200")
