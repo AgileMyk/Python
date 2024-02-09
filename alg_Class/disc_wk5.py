@@ -101,11 +101,14 @@ def main():
                         print(subTopic)
                 add = input("\nOf the above-mentioned sub topics, how many do you know?\n") #increases total (measuring subtopics learned), told to user at the end
                 #behaves based on receiving a number or 'number' while preventing error caused by user inputing a non-String number
-                if (add.isdigit()): 
+                if (add.isdigit() and int(add) > 0 and int(add) <= len(subTopic)): 
                     total = total + int(add)
+                #this elif protects against user entering a number too high; when this happens the total is added, the user is informed, and the iteration continues
+                elif(add.isdigit() and int(add) >= len(subjectListIndex[known])):
+                    (print("You entered a value over the total number of subjects, the total number of subjects (%d) for %s will be added)" % (len(subjectListIndex[known]), subjectListName[known])))
+                    total = total + len(subjectListIndex[known])
                 else:
                     print("There was an invalid entry, all the subtopics from %s will be added to your to-learn list" % (subjectListName[known]))
-                    
                 known = known + 1 #increments sentVal as each topic to be known is addressed in the loop                 
             else: 
                   print("This will involve learning: \n")
